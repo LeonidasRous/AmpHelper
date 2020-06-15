@@ -19,22 +19,15 @@ class AmpHelper{
 
     public static function changeHTML($html)
     {
-
-
         self::checkInstagram($html);
         self::checkTwitter($html);
         self::checkYoutube($html);
         self::checkFacebook($html);
         self::checkImages($html);
         self::checkTiktok($html);
-
-
         list($from,$to) = self::fixArrayToReplace();
-
         $html = str_replace($from,$to,$html);
-
         return $html;
-
     }
 
     private static function checkTwitter(&$html){
@@ -89,15 +82,12 @@ class AmpHelper{
     }
 
     private static function fixArrayToReplace(){
-
         $doubleReplaceArrays[0] = [];
         $doubleReplaceArrays[1] = [];
         foreach(self::$replaces as $key => $repl){
             $doubleReplaceArrays[0][] = $key;
             $doubleReplaceArrays[1][] = $repl;
         }
-
         return $doubleReplaceArrays;
-
     }
 }
